@@ -1,0 +1,506 @@
+Java Operators
+int x=10;
+int z=-x;       //z=-10
+
+here z = -x;: Negates the value of x and assigns it to z.
+
+x++;
+x++;: Post-increment increases the value of x by 1 after the statement is executed.
+
+--y;
+--y;: Pre-decrement decreases the value of y by 1 before the statement is executed.
+
+z = ++x + y--;
+++x: Pre-increment increases x by 1 before the addition.
+y--: Post-decrement uses the current value of y in the addition and decreases it afterward.
+The sum of ++x and the value of y is assigned to z.
+
+Key Points:
+Unary operators:
+-: Negation (changes the sign of the operand).
+++: Increment.
+--: Decrement.
+Post-Increment/Decrement (x++, y--):
+Updates the variable after using its current value in the expression.
+Pre-Increment/Decrement (++x, --y):
+Updates the variable before using its updated value in the expression.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Fractional Values with % in Java
+Java allows the % operator to be used with floating-point numbers (like float and double), unlike C/C++.
+The operation calculates the remainder when one number is divided by another, even for non-integers.
+
+In C++, the modulus operator (%) only supports integer types and does not work with floating-point numbers. This behavior contrasts with Java, where the % operator can handle both integers and floating-point numbers.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+List of Relational Operators
+Operator	Description	                Example 	Result
+<	        Less than	                5 < 10   	true
+<=	        Less than or equal to	        5 <= 5	        true
+>	        Greater than	                10 > 5	        true
+>=	        Greater than or equal to	10 >= 15	false
+==	        Equal to	                10 == 10	true
+!=	        Not equal to	                10 != 15	true
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Logical OPerators
+
+Logical AND (&&):
+
+Both conditions must evaluate to true for the result to be true.
+If either condition is false, the result is false.
+Example:
+
+System.out.println((5 > 3) && (8 > 5)); // true
+System.out.println((5 > 3) && (8 < 5)); // false
+
+Logical OR (||):
+
+If at least one condition is true, the result is true.
+Both conditions must be false for the result to be false.
+Example:
+
+System.out.println((5 > 3) || (8 > 5)); // true
+System.out.println((5 < 3) || (8 < 5)); // false
+
+
+Logical NOT (!):
+
+Reverses the truth value of a condition.
+true becomes false, and false becomes true.
+Example:
+
+System.out.println(!(5 > 3)); // false
+System.out.println(!(5 < 3)); // true
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+conditional operator 
+Conditional operator or ternary operator or if-then-else operator(?:):
+
+This is the only operator which has decision abiity.
+
+x=10;
+y=5;
+
+int z=(x>y)?x:y;
+
+-------------------------------------------------------------------------------------------------------------------------------
+Bitwise operators
+Bitwise operators in Java perform operations on the binary representations of integers. These operators manipulate individual bits directly.
+
+
+Bitwise AND (&)
+Operation: Compares each bit of two numbers. The result is 1 if both corresponding bits are 1; otherwise, it's 0.
+
+Bitwise OR (|)
+Operation: Compares each bit of two numbers. The result is 1 if at least one corresponding bit is 1.
+
+ Bitwise XOR (^)
+Operation: Compares each bit of two numbers. The result is 1 if the bits are different; otherwise, it's 0.
+======================================================================================================
+
+ Left Shift (<<)
+Operation: Shifts bits to the left, filling with 0 from the right.
+
+int x=10;           //1010    (10)
+int result = x<<2;    //               00001010   ===>  00101000   (40)
+
+shortcut:: Calculation: 
+10 x 2^2 = 10 x 4= 40
+===================================================
+
+ Right Shift (>>)
+Operation: Shifts bits to the right, filling with the sign bit (0 for positive, 1 for negative).
+
+int x=10;           //1010    (10)
+int result = x>>2;    //               00001010   ===>  0010   (2)
+
+shortcut ::Calculation
+10 / 2^2 = 10 / 4 = 2
+
+========================================================================
+
+
+-------------------------------------------------------------------------------------------
+
+continue
+
+The continue keyword in Java is used to skip the current iteration of a loop and move to the next iteration. It's often used to bypass certain parts of the loop body when a condition is met.
+
+code:
+public class ContinueExample {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i++) {
+            if (i == 3) {
+                continue; // Skip the rest of the loop when i == 3
+            }
+            System.out.println(i);
+        }
+    }
+}
+
+
+output:
+1
+2
+4
+5
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Labelled Continue
+In Java, a labeled continue statement is used when dealing with nested loops. It allows you to skip the current iteration of an outer loop, rather than the immediate (inner) loop.
+
+code:
+
+labelName:                       //we can give any name
+// Outer loop
+for (initialization; condition; update) {
+    // Inner loop
+    for (initialization; condition; update) {
+        if (condition) {
+            continue labelName; // Skips to the next iteration of the loop labeled by labelName
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Break
+The break keyword in Java is used to terminate a loop or switch statement immediately, regardless of the loop's condition. When encountered, it causes the program to exit the loop or switch and continue execution from the next statement after it.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Labelled Break
+In Java, labeled break is used to terminate a specific outer loop in nested loops. Without labels, the break statement only exits the immediate loop it is in. With a label, it allows you to break out of an outer loop directly.
+
+code:
+
+labelName:
+{
+    // Outer loop
+    for (initialization; condition; update) {
+        // Inner loop
+        for (initialization; condition; update) {
+            if (condition) {
+                break labelName; // Terminates the loop identified by labelName
+            }
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+difference between class in cpp and java
+
+1) syntax
+
+class MyClass {
+public: 
+    int myNumber;       // Public member
+    void display() {    // Member function
+        cout << myNumber << endl;
+    }
+};
+
+public class MyClass {
+    public int myNumber;       // Public member
+    public void display() {    // Member function
+        System.out.println(myNumber);
+    }
+}
+
+
+2)Access Specifiers
+C++:
+Access specifiers (public, protected, private) are optional but default to private in a class.
+
+Java:
+Default access level for class members is package-private(means default) (accessible within the same package).
+Explicit access modifiers (public, protected, private) are commonly used.
+
+3) Memory Management
+
+
+C++:
+Memory allocation can be manual using new and delete.
+Objects can be created on the stack or heap:
+
+MyClass obj;  // Stack allocation
+MyClass* ptr = new MyClass();  // Heap allocation
+delete ptr;  // Manual deallocation
+
+Java:
+All objects are created on the heap using new, and memory is managed by the Garbage Collector:
+MyClass obj = new MyClass(); // Heap allocation
+
+
+4)Constructors and Destructors
+
+C++:
+Supports constructors and destructors for resource management.
+Destructors (~ClassName) are explicitly defined for cleanup.
+Example:
+class MyClass {
+public:
+    MyClass() { cout << "Constructor called"; }
+    ~MyClass() { cout << "Destructor called"; }
+};
+
+Java:
+Supports constructors, but no destructors. Cleanup is handled by the Garbage Collector.
+A finalize() method exists but is rarely used due to its unpredictability.
+
+
+5) Multiple Inheritance
+
+C++:
+Supports multiple inheritance:
+class A { /*...*/ };
+class B { /*...*/ };
+class C : public A, public B { /*...*/ };
+
+Java:
+Does not support multiple inheritance with classes but allows it with interfaces:
+public interface A { /*...*/ }
+public interface B { /*...*/ }
+public class C implements A, B { /*...*/ }
+
+
+6) Pointers
+
+C++:
+Allows direct manipulation of pointers and memory addresses.
+Example:
+MyClass* ptr = new MyClass();
+ptr->display();
+delete ptr;
+
+
+Java:
+Does not support pointers explicitly. Object references are used instead
+MyClass obj = new MyClass();
+obj.display();
+
+
+7)Static Members
+C++:
+static members are shared among all instances, but you must define them outside the class if initialized.
+class MyClass {
+public:
+    static int count;
+};
+int MyClass::count = 0; // Define static member
+
+
+Java:
+static members are shared among instances and can be initialized directly in the class:
+public class MyClass {
+    public static int count = 0;
+}
+
+8)
+C++:
+Uses try, catch, and throw, but it's optional to catch or declare exceptions
+try {
+    throw "Error!";
+} catch (const char* msg) {
+    cout << msg;
+}
+
+Java:
+Enforces exception handling. Checked exceptions must be declared or handled:
+try {
+    throw new Exception("Error!");
+} catch (Exception e) {
+    System.out.println(e.getMessage());
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+why is there no pointer required for allocation?
+In Java, when you create an object, a reference to the object is implicitly managed by the JVM (Java Virtual Machine). This reference behaves like a pointer but is much safer and easier to use.
+MyClass obj = new MyClass();
+
+Here, obj is a reference variable that points to the memory location of the object created in the heap. However, you cannot manipulate the memory address directly as you can with pointers in C++.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Why No Explicit Pointers in Java?
+Java eliminates explicit pointers to ensure:
+
+Safety:
+Direct manipulation of pointers can lead to issues like memory corruption, dangling pointers, and buffer overflows. Java avoids these problems by abstracting memory management.
+Garbage Collection:
+Java's Garbage Collector automatically manages memory, freeing unused objects. This means you don’t need to manually allocate or deallocate memory, unlike C++ (new and delete).
+Simplicity:
+Without pointers, Java simplifies coding by allowing developers to focus on logic rather than memory management.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ Example: How References Work in Java?
+MyClass obj = new MyClass();
+
+new MyClass() creates the object in the heap memory.
+obj holds a reference to that object.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+class Swapdemo
+{
+	public static void swap(int a,int b)
+	{
+	int tmp=a;
+	a=b;
+	b=tmp;
+	System.out.print("a="+a+"b="+b);
+	}
+
+	public static void main(String [] args)
+	{
+	int x=10,y=20;
+	System.out.println("\n Before Interchange x="+x+"\t y="+y);
+	swap(x,y);
+	System.out.println("\n After Interchange x="+x+"\t y="+y);
+}}
+
+output:
+C:\Users\adity\Desktop\Archer\Java>javac Swapdemo.java
+C:\Users\adity\Desktop\Archer\Java>java Swapdemo
+
+ Before Interchange x=10         y=20
+a=20 b=10
+ After Interchange x=10  y=20
+
+NOte that:  ---
+In Java, all primitive types are passed by value. This means:
+
+When the swap method is called (swap(x, y)), the values of x and y are copied into the parameters a and b of the method.
+Inside the swap method, changes to a and b do not affect the original x and y in the main method because a and b are local copies.
+
+Key Point
+Pass-by-value: Java creates a copy of the variable's value when passing it to a method. Changes made to the copy do not affect the original variable.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+how pass-by-reference-like behavior can be achieved in Java using objects. 
+
+code:
+import java.util.Scanner;
+class Int
+{
+	private int data;
+	public void setData(int data)
+	{
+	this.data= data;
+
+	}
+	public int getData()
+	{
+		return data;
+	}
+
+}
+
+class ObjByRef
+	
+{	public static void modify(Int t)
+	{
+		t.setData(t.getData()+100);
+	}
+	
+	public static void main(String [] args)
+	{
+	int x=10;
+	Int ob = new Int();
+	ob.setData(x);
+	System.out.println("Before modifyng "+ob.getData());
+	modify(ob);
+	System.out.println("After modifying :"+ob.getData());
+	}
+}
+
+//For objects, a copy of the reference to the object is passed to methods. Although the reference itself cannot be changed, the object it points to can be modified.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The provided code attempts to use the Integer wrapper class to swap two variables via a method, but it does not achieve the desired result due to Java's handling of immutable objects and pass-by-value semantics.
+
+code:
+class SwapDemoUsingObjUsingWrapper
+{
+	public static void swap(Integer  oba, Integer obb)
+	{
+		int tmp;
+		tmp=oba;
+		oba=obb;
+		obb=tmp;
+	}
+	public static void main(String[]args)
+	{
+		int x=10, y=20;
+
+		Integer obx = x;          //autoboxing
+		Integer oby = y;
+
+		System.out.println("\n Before Interchange x="+obx+"\t y="+oby);
+		swap(obx,oby);
+		System.out.println("\n After Interchange x="+obx+"\t y="+oby);
+	}
+}
+
+The output will not gives the swaped values coz Integer object is immutable. You need mutable object
+or use the array.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+The values of x and y are not swapping because:
+
+	- Java passes object references by value.
+	- The swap method only modifies the local copies of the references.
+	- Integer objects are immutable, so their values cannot be changed directly.
+
+	NOTE:
+	- When you pass a primitive type (e.g., int, float, char) to a method, a copy of the value is 
+	  passed. Changes made to the parameter inside the method do not affect the original variable.
+
+	- When you pass an object to a method, a copy of the reference to the object is passed. This 
+	  means that the method receives a reference to the same object, but the reference itself is a copy.
+	
+	- Changes made to the object through the reference inside the method will affect the original object. 
+	  However, changes made to the reference itself (e.g., assigning it to a new object) will not affect 
+	  the original reference.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CONSTRUCTOR 
+
+if class name is Sample
+
+public Sample()     //default
+public Sample (int a)  // parameterized
+public Sample(int a, int b);   //parameterized
+public Sample( Sample t);      //copy constructor
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+AWT (Abstract Window Toolkit)
+AWT (Abstract Window Toolkit) is a Java library used for building Graphical User Interfaces (GUI). It is part of Java SE and provides components like windows, buttons, and text fields.
+
+🔹 Package: java.awt
+🔹 Example Components: Button, Label, TextField, Frame, etc.
+
+🟢 Advantages of AWT
+1️⃣ Platform-Independent – Uses Java's "Write Once, Run Anywhere" capability.
+2️⃣ Simple and Lightweight – Easy to use for small GUI applications.
+3️⃣ Built-in Support – Comes with Java SE, no need for extra installation.
+4️⃣ Direct OS Integration – Uses native components (buttons, menus, etc.) from the underlying OS, providing a consistent look.
+
+🔴 Disadvantages of AWT
+1️⃣ Heavyweight Components – Uses native OS components, making UI inconsistent across platforms.
+2️⃣ Limited UI Features – Does not support rich UI elements like tables, trees, and advanced layouts.
+3️⃣ Less Customization – Difficult to modify appearance due to OS dependency.
+4️⃣ Replaced by Swing & JavaFX – Swing (lightweight & flexible) and JavaFX (modern UI) are preferred over AWT.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
