@@ -504,3 +504,23 @@ AWT (Abstract Window Toolkit) is a Java library used for building Graphical User
 4️⃣ Replaced by Swing & JavaFX – Swing (lightweight & flexible) and JavaFX (modern UI) are preferred over AWT.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Swing (javax.swing)
+Swing is a Java GUI toolkit that is part of Java Foundation Classes (JFC). It is an advanced lightweight GUI library that improves upon AWT by providing more flexible and customizable components.
+
+🔹 Package: javax.swing
+🔹 Example Components: JButton, JLabel, JTextField, JFrame, JPanel, etc.
+
+🟢 Advantages of Swing
+1️⃣ Lightweight Components – Unlike AWT, Swing does not rely on native OS components, making it consistent across platforms.
+2️⃣ Highly Customizable – Supports themes (Look and Feel), colors, fonts, and layout managers for better UI design.
+3️⃣ Rich Set of Components – Provides tables (JTable), trees (JTree), tabbed panes (JTabbedPane), etc., which AWT lacks.
+4️⃣ MVC Architecture – Follows Model-View-Controller (MVC) design for better separation of logic and UI.
+5️⃣ Better Event Handling – More flexible and efficient compared to AWT.
+
+🔴 Disadvantages of Swing
+1️⃣ Slower Performance – Since Swing is not OS-native, it relies on Java rendering, which can be slower.
+2️⃣ More Memory Usage – Requires more RAM than AWT due to additional features.
+3️⃣ Complex for Beginners – More code is needed compared to AWT for simple applications.
+4️⃣ Replaced by JavaFX – Swing is still used but is being phased out in favor of JavaFX, which provides better UI/UX.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
